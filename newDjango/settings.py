@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 """
 import os
 from pathlib import Path
-from secrets import *
+from secrets_env import *
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,7 +24,6 @@ SECRET_KEY = 'hd(aq&$qhj(d=47o8unfi&9fhi9u9!8=f9sglv1)@(1o!4azdu'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
-
 ALLOWED_HOSTS = []
 
 # Application definition
@@ -42,6 +41,7 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
     'movies',
+    'contact',
 
     'snowpenguin.django.recaptcha3',
 ]
