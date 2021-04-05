@@ -3,11 +3,15 @@ from django.contrib import admin
 from django.contrib.gis import forms
 from django.utils.safestring import mark_safe
 
+from modeltranslation.admin import TranslationAdmin
+
 from .models import Category, Genre, Movie, MovieShots, Actor, Rating, RatingStar, Reviews
 
 
 class MovieAdminForm(forms.ModelForm):
-    description = forms.CharField(label="Описание", widget=CKEditorUploadingWidget())
+    """Форма с виджетом ckeditor"""
+    description_ru = forms.CharField(label="Описание", widget=CKEditorUploadingWidget())
+    description_en = forms.CharField(label="Описание", widget=CKEditorUploadingWidget())
 
     class Meta:
         model = Movie
@@ -17,7 +21,8 @@ class MovieAdminForm(forms.ModelForm):
 # Register your models here.
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
-    list_display = ("id", "name", "url")
+    """Категории"""
+    list_display = ("name", "url")
     list_display_links = ("name",)
 
 
